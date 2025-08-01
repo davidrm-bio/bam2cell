@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "bam2cell"
-dynamic = ["version"]
+version = "0.0.1"
 description = "A method to split BAM files for celltypes"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -39,8 +39,6 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/davidrm-bio/bam2cell"
 
-[tool.hatch.version]
-path = "bam2cell/__init__.py"
 
 [tool.hatch.build.targets.sdist]
 include = [
