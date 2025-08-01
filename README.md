@@ -1,7 +1,8 @@
 # Bam2cell
 
 
-[![Latest PyPI Version][pb]][pypi] [![PyPI Downloads][db]][pypi] [![tests][gb]][yml] 
+[![Latest PyPI Version][pb]][pypi] [![PyPI Downloads][db]][pypi] [![tests][gb]][yml] [![DOI](https://zenodo.org/badge/1030186202.svg)](https://doi.org/10.5281/zenodo.16691336)
+
 
 [gb]: https://github.com/davidrm-bio/bam2cell/actions/workflows/release.yml/badge.svg
 [yml]: https://github.com/davidrm-bio/bam2cell/actions/workflows/release.yml
