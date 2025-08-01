@@ -29,16 +29,6 @@ dependencies = [
     "tqdm",
 ]
 
-optional-dependencies.test = [
-   "numpy",
-    "pandas",
-    "scipy",
-    "pysam",
-    "anndata",
-    "multiprocessing",
-    "multiprocess",
-    "tqdm",
-]
 
 [project.urls]
 Homepage = "https://github.com/davidrm-bio/bam2cell"
@@ -53,5 +43,13 @@ include = [
 
 [tool.hatch.envs.test]
 dependencies = [
-  "pytest"
+  "pytest",
+    "numpy",
+    "pandas",
+    "scipy",
+    "pysam",
+    "anndata",
+    "multiprocessing",
+    "multiprocess",
+    "tqdm",
 ]
