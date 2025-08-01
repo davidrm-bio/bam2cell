@@ -51,3 +51,6 @@ dependencies = [
     "multiprocess",
     "tqdm",
 ]
+
+[tool.hatch.envs.hatch-test.matrix]
+python = ["3.10"]
