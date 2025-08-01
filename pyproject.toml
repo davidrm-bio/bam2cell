@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bam2cell"
+dynamic = ["version"]
+description = "A method to split BAM files for celltypes"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+
+maintainers = [
+  { name = "David Rodriguez Morales", email = "rodriguezmorales@med.uni-frankfurt.de" },
+]
+
+authors = [
+    { name = "David Rodriguez Morales", orcid = "0000-0002-1819-6991", email = "rodriguezmorales@med.uni-frankfurt.de" },
+]
+
+
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "pysam",
+    "anndata",
+    "multiprocessing",
+    "multiprocess",
+    "tqdm",
+]
+
+[project.urls]
+Homepage = "https://github.com/davidrm-bio/bam2cell"
+
+[tool.hatch.version]
+path = "bam2cell/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/bam2cell",
+]
+
+[tool.hatch.envs.test]
+dependencies = [
+  "pytest"
+]
