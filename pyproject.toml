@@ -18,9 +18,19 @@ authors = [
     { name = "David Rodriguez Morales", orcid = "0000-0002-1819-6991", email = "rodriguezmorales@med.uni-frankfurt.de" },
 ]
 
-
 dependencies = [
     "numpy",
+    "pandas",
+    "scipy",
+    "pysam",
+    "anndata",
+    "multiprocessing",
+    "multiprocess",
+    "tqdm",
+]
+
+optional-dependencies.test = [
+   "numpy",
     "pandas",
     "scipy",
     "pysam",
