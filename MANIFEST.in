@@ -1,0 +1,4 @@
+include README.md
+prune data*
+prune tests*
+exclude MANIFEST.in
