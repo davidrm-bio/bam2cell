@@ -24,7 +24,6 @@ dependencies = [
     "scipy",
     "pysam",
     "anndata",
-    "multiprocessing",
     "multiprocess",
     "tqdm",
 ]
@@ -49,7 +48,6 @@ dependencies = [
     "scipy",
     "pysam",
     "anndata",
-    "multiprocessing",
     "multiprocess",
     "tqdm",
 ]
