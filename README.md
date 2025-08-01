@@ -1,5 +1,16 @@
 # Bam2cell
 
+
+[![Latest PyPI Version][pb]][pypi] [![PyPI Downloads][db]][pypi] [![tests][gb]][yml] 
+
+[gb]: https://github.com/davidrm-bio/bam2cell/actions/workflows/release.yml/badge.svg
+[yml]: https://github.com/davidrm-bio/bam2cell/actions/workflows/release.yml
+[pb]: https://img.shields.io/pypi/v/bam2cell.svg
+[pypi]: https://pypi.org/project/bam2cell/
+
+[db]: https://img.shields.io/pypi/dm/bam2cell?label=pypi%20downloads
+
+
 A package to split a BAM file based on cell type annotation in 
 AnnData objects.
 
@@ -59,11 +70,11 @@ bam2cell.bam2cell(adata,
 # Installation
 
 You need to have Python 3.10 or newer installed on your system. There are several alternative options 
-to install bam2cell:
+to install `bam2cell`:
 
-1. Install the latest release of `bam2cell` from [PyPI][]:
+1. Install the latest release of `bam2cell` from [PyPI](https://pypi.org/project/bam2cell/):
 ```bash
-pip install bam2cell  # Not yet available
+pip install bam2cell  
 ```
 
 2. Install the latest development version:
