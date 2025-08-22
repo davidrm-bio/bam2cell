@@ -1,15 +1,18 @@
 # Bam2cell
 
 
-[![Latest PyPI Version][pb]][pypi] [![PyPI Downloads][db]][pypi] [![tests][gb]][yml] [![DOI](https://zenodo.org/badge/1030186202.svg)](https://doi.org/10.5281/zenodo.16691336)
+[![Latest PyPI Version][pb]][pypi] 
+[![Downloads](https://static.pepy.tech/badge/bam2cell)](https://pepy.tech/project/bam2cell)
+[![tests][gb]][yml] 
+[![DOI](https://zenodo.org/badge/1030186202.svg)](https://doi.org/10.5281/zenodo.16691336)
 
 
 [gb]: https://github.com/davidrm-bio/bam2cell/actions/workflows/release.yml/badge.svg
 [yml]: https://github.com/davidrm-bio/bam2cell/actions/workflows/release.yml
 [pb]: https://img.shields.io/pypi/v/bam2cell.svg
+[db]: https://img.shields.io/pypi/dm/bam2cell?label=pypi%20downloads
 [pypi]: https://pypi.org/project/bam2cell/
 
-[db]: https://img.shields.io/pypi/dm/bam2cell?label=pypi%20downloads
 
 
 A package to split a BAM file based on cell type annotation in 
@@ -22,6 +25,8 @@ There are two modes **sequential** and **parallel**. The sequential mode will pr
 disk space friendly, the parallel is more disk space hungry but faster, since it process all cell types at the same time.
 
 A minimal example is shown here:
+
+<p align="left"><strong><span style="color:red">⚠️ Note:</span></strong> The barcodes should not contain suffix or prefix. Use `clean_bcs()` to remove them.</p>
 
 ```python
 import bam2cell

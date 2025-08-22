@@ -40,6 +40,8 @@ class GenerateCellTypeBAM:
         Path to save tmp files. Default is '/tmp'.
     workers
         Number of threads to use during the splitting process.
+    barcode_length
+        Number of characters expected for a 10x Barcode (16 + 2)
 
     Examples
     --------
@@ -59,7 +61,12 @@ class GenerateCellTypeBAM:
                  input_bam: str | Path,
                  tmp_path: str | Path = "/tmp",
                  workers: int = 20,
+                 barcode_length: int = 18,
                  ) -> None:
+
+        test_bc = adata.obs_names[0]
+        if len(test_bc) != barcode_length:
+            raise Exception('The length of the barcode does not match the standard 16bp + -1, use clean_bcs() to remove the suffix and or preffix')
 
         self.adata = adata
         self.annot_key = annot_key
@@ -199,6 +206,7 @@ def bam2cell(
         suffix: str = None,
         prefix: str = None,
         workers: int = 5,
+        barcode_length: int = 18,
 ) -> None:
     """Split BAM files based on AnnData annotation.
 
@@ -220,6 +228,7 @@ def bam2cell(
     :param suffix: Suffix in the barcodes that need to be removed.
     :param prefix: Prefix in the barcodes that need to be removed.
     :param workers: Number of threads to use for the parallelization.
+    :param barcode_length: Number of characters expected for a 10x Barcode (16 + 2).
     :return: Returns None. If batch_key is set, a subfolder will be created for each batch in `output_path`. For each
              cell type or group a BAM file will be saved in the `output_folder`.
 
@@ -245,7 +254,7 @@ def bam2cell(
     ...                  bam_key="bam_path",
     ...                  batch_key="batch",
     ...                  mode="parallel",
-    ...                  workers=8
+    ...                  workers=8,
     ...                  )
 
     """
@@ -272,7 +281,8 @@ def bam2cell(
                                             output_path=batch_path,
                                             input_bam=input_bam,
                                             tmp_path=tmp_path,
-                                            workers=workers)
+                                            workers=workers,
+                                            barcode_length=barcode_length)
             if mode == "sequential":
                 generator.process_cts_sequential()
             elif mode == "parallel":
@@ -290,7 +300,8 @@ def bam2cell(
                                         output_path=output_path,
                                         input_bam=input_bam,
                                         tmp_path=tmp_path,
-                                        workers=workers)
+                                        workers=workers,
+                                        barcode_length=barcode_length)
         if mode == "sequential":
             generator.process_cts_sequential()
         elif mode == "parallel":

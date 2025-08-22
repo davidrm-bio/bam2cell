@@ -6,31 +6,31 @@ import pandas as pd
 
 import bam2cell
 
-
-def test_bam2cell_parallel():
-    adata = ad.read_h5ad("data/adata.h5ad")
-
-    start_time = time()
-    generator = bam2cell.GenerateCellTypeBAM(adata, "annotation", "data/", "data/AllCellsSorted_toy.bam", tmp_path='data/', workers=10)
-    generator.process_all_parallel()
-    end_time = time()
-    print ("Elapse time: ", round((end_time - start_time) / 60, 2), ' min')  # ~6 min
-    files = os.listdir("data/")
-    files_tmp = os.listdir("data/" + [f for f in files if 'BAM_' in f][0])
-    files_tmp = [f for f in files_tmp if not f.startswith('.')]
-    expected_files = ['T_cells_sorted.bam', 'T_cells_sorted.bam.bai',
-                      'Monocytes_sorted.bam', 'Monocytes_sorted.bam.bai',
-                      'pDC_sorted.bam',  'pDC_sorted.bam.bai',
-                      'NK_sorted.bam.bai', 'NK_sorted.bam']
-
-    assert  all(file in files for file in expected_files), "All expected files not found"
-    assert len(files_tmp) == 0, "tmp folder not empty"
-
-    # Clean-Up
-    shutil.rmtree("data/" + [f for f in files if 'BAM_' in f][0])
-    for f in expected_files:
-        os.remove("data/" + f)
-    return
+# test_bam2cell_multiple uses parallel
+# def test_bam2cell_parallel():
+#     adata = ad.read_h5ad("data/adata.h5ad")
+#
+#     start_time = time()
+#     generator = bam2cell.GenerateCellTypeBAM(adata, "annotation", "data/", "data/AllCellsSorted_toy.bam", tmp_path='data/', workers=10)
+#     generator.process_all_parallel()
+#     end_time = time()
+#     print ("Elapse time: ", round((end_time - start_time) / 60, 2), ' min')  # ~6 min
+#     files = os.listdir("data/")
+#     files_tmp = os.listdir("data/" + [f for f in files if 'BAM_' in f][0])
+#     files_tmp = [f for f in files_tmp if not f.startswith('.')]
+#     expected_files = ['T_cells_sorted.bam', 'T_cells_sorted.bam.bai',
+#                       'Monocytes_sorted.bam', 'Monocytes_sorted.bam.bai',
+#                       'pDC_sorted.bam',  'pDC_sorted.bam.bai',
+#                       'NK_sorted.bam.bai', 'NK_sorted.bam']
+#
+#     assert  all(file in files for file in expected_files), "All expected files not found"
+#     assert len(files_tmp) == 0, "tmp folder not empty"
+#
+#     # Clean-Up
+#     shutil.rmtree("data/" + [f for f in files if 'BAM_' in f][0])
+#     for f in expected_files:
+#         os.remove("data/" + f)
+#     return
 
 
 def test_bam2cell_sequential():
