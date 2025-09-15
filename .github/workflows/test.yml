@@ -51,7 +51,7 @@ jobs:
   # Run tests through hatch. Spawns a separate runner for each environment defined in the hatch matrix obtained above.
   test:
     needs: get-environments
-
+    timeout-minutes: 300
     strategy:
       fail-fast: false
       matrix:

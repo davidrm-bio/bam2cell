@@ -26,7 +26,7 @@ disk space friendly, the parallel is more disk space hungry but faster, since it
 
 A minimal example is shown here:
 
-<p align="left"><strong><span style="color:red">⚠️ Note:</span></strong> The barcodes should not contain suffix or prefix. Use `clean_bcs()` to remove them.</p>
+<p align="left"><strong><span style="color:red">⚠️ Note:</span></strong> The barcodes should not contain suffix or prefix. Use clean_bcs() to remove them.</p>
 
 ```python
 import bam2cell
